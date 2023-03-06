@@ -162,24 +162,26 @@ function onSelectStart( event ) {
     const controller = event.target;
     if (vertice1 == undefined){
     	vertice1 = controller.position;
-    	let sferaGeo = new THREE.SphereGeometry(vertice1);
+    	let sferaGeo = new THREE.SphereGeometry(5,32,16);
     	const material = new THREE.MeshStandardMaterial( {
                     color: Math.random() * 0xffffff,
                     roughness: 0.7,
                     metalness: 0.0
             } );
         const sphere = new THREE.Mesh(sferaGeo,material);
+        sphere.position.copy( vertice1);
         scene.add( sphere );
         }
      if (vertice2 == undefined && vertice1 != undefined){
     	vertice2 = controller.position;
-    	let sferaGeo2 = new THREE.SphereGeometry(vertice2);
+    	let sferaGeo2 = new THREE.SphereGeometry(5,32,16);
     	const material2 = new THREE.MeshStandardMaterial( {
                     color: Math.random() * 0xffffff,
                     roughness: 0.7,
                     metalness: 0.0
             } );
         const sphere2 = new THREE.Mesh(sferaGeo2,material2);
+        sphere2.position.copy(vertice2);
         scene.add( sphere2 );
         var cubeDiagonal = new THREE.Vector3().copy(vertice2).sub(vertice1).length(); // cube's diagonal
 	var center = new THREE.Vector3().copy(vertice1).add(vertice2).multiplyScalar(0.5); // cube's center
