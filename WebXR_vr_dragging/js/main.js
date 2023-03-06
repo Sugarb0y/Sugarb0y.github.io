@@ -172,7 +172,7 @@ function onSelectStart( event ) {
         scene.add( sphere );
      if (vertice2 == undefined &&vertice1 != undefined)
     	vertice2 = controller.position;
-    	let sferaGeo2 = new THREE.SphereGeometry(veritce2);
+    	let sferaGeo2 = new THREE.SphereGeometry(vertice2);
     	const material2 = new THREE.MeshStandardMaterial( {
                     color: Math.random() * 0xffffff,
                     roughness: 0.7,
