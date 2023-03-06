@@ -164,7 +164,7 @@ function onSelectStart( event ) {
     if (vertice1 == undefined){
     	vertice1 = controller.position.clone();
     	console.log(vertice1);
-    	let sferaGeo = new THREE.SphereGeometry(1,32,16);
+    	let sferaGeo = new THREE.SphereGeometry(0.2,32,16);
     	let material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
         let sphere = new THREE.Mesh(sferaGeo,material);
         sphere.position.copy( vertice1);
@@ -173,7 +173,7 @@ function onSelectStart( event ) {
      else if (vertice2 == undefined){
     	vertice2 = controller.position.clone();
     	console.log(vertice2);
-    	let sferaGeo2 = new THREE.SphereGeometry(5,32,16);
+    	let sferaGeo2 = new THREE.SphereGeometry(0.1,32,16);
     	let material2 = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
         let sphere2 = new THREE.Mesh(sferaGeo2,material2);
         sphere2.position.copy(vertice2);
