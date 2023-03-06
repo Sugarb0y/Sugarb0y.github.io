@@ -67,7 +67,7 @@ function init() {
             new THREE.IcosahedronGeometry( 0.2, 8 ),
             new THREE.TorusGeometry( 0.2, 0.04, 64, 32 )
     ];
-
+/*
     for ( let i = 0; i < 50; i ++ ) {
 
             const geometry = geometries[ Math.floor( Math.random() * geometries.length ) ];
@@ -95,7 +95,7 @@ function init() {
             group.add( object );
 
     }
-
+*/
     //
 
     renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -187,7 +187,7 @@ function onSelectStart( event ) {
 	var cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
 	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
 	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
-	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ));
+	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ););
 	cube.position.copy(center); // set position of the cube
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
@@ -198,17 +198,6 @@ function onSelectStart( event ) {
 
 function onSelectEnd( event ) {
 
-    const controller = event.target;
-
-    if ( controller.userData.selected !== undefined ) {
-
-            const object = controller.userData.selected;
-            object.material.emissive.b = 0;
-            group.attach( object );
-
-            controller.userData.selected = undefined;
-
-    }
 
 
 }
@@ -226,39 +215,10 @@ function getIntersections( controller ) {
 
 function intersectObjects( controller ) {
 
-    // Do not highlight when already selected
-
-    if ( controller.userData.selected !== undefined ) return;
-
-    const line = controller.getObjectByName( 'line' );
-    const intersections = getIntersections( controller );
-
-    if ( intersections.length > 0 ) {
-
-            const intersection = intersections[ 0 ];
-
-            const object = intersection.object;
-            object.material.emissive.r = 1;
-            intersected.push( object );
-
-            line.scale.z = intersection.distance;
-
-    } else {
-
-            line.scale.z = 5;
-
-    }
-
 }
 
 function cleanIntersected() {
 
-    while ( intersected.length ) {
-
-            const object = intersected.pop();
-            object.material.emissive.r = 0;
-
-    }
 
 }
 
