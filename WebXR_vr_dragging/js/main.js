@@ -163,7 +163,7 @@ function onSelectStart( event ) {
 
     let controller = event.target;
     if (vertice1 == undefined){
-    	vertice1 = controller.position;
+    	vertice1 = controller.position.clone();
     	console.log(vertice1);
     	let sferaGeo = new THREE.SphereGeometry(20,32,16);
     	let material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
@@ -172,22 +172,22 @@ function onSelectStart( event ) {
         scene.add( sphere );
         }
      else if (vertice2 == undefined){
-    	vertice2 = controller.position;
+    	vertice2 = controller.position.clone();
     	console.log(vertice2);
     	let sferaGeo2 = new THREE.SphereGeometry(30,32,16);
     	let material2 = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
         sphere2 = new THREE.Mesh(sferaGeo2,material2);
         sphere2.position.copy(vertice2);
         scene.add( sphere2 );
-        var cubeDiagonal = new THREE.Vector3().copy(vertice2).sub(vertice1).length(); // cube's diagonal
-	var center = new THREE.Vector3().copy(vertice1).add(vertice2).multiplyScalar(0.5); // cube's center
+        let cubeDiagonal = new THREE.Vector3().copy(vertice2).sub(vertice1).length(); // cube's diagonal
+	let center = new THREE.Vector3().copy(vertice1).add(vertice2).multiplyScalar(0.5); // cube's center
 
-	var cubeSide = (cubeDiagonal * Math.sqrt(3)) / 3; // cube's edge's length via cube's diagonal
+	let cubeSide = (cubeDiagonal * Math.sqrt(3)) / 3; // cube's edge's length via cube's diagonal
 
-	var cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
+	let cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
 	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
 	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
-	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ));
+	let cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ));
 	cube.position.copy(center); // set position of the cube
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
