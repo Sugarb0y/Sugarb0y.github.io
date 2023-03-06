@@ -192,7 +192,10 @@ function onSelectStart( event ) {
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
         }
-    
+    else{
+    	vertice2 == undefined;
+    	vertice1 == undefined;
+    }
 
 }
 
