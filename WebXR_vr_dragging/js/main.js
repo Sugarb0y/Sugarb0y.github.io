@@ -160,7 +160,7 @@ function onWindowResize() {
 function onSelectStart( event ) {
 
     const controller = event.target;
-    if (vertice1 == undefined)
+    if (vertice1 == undefined){
     	vertice1 = controller.position;
     	let sferaGeo = new THREE.SphereGeometry(vertice1);
     	const material = new THREE.MeshStandardMaterial( {
@@ -170,7 +170,8 @@ function onSelectStart( event ) {
             } );
         const sphere = new THREE.Mesh(sferaGeo,material);
         scene.add( sphere );
-     if (vertice2 == undefined &&vertice1 != undefined)
+        }
+     if (vertice2 == undefined && vertice1 != undefined){
     	vertice2 = controller.position;
     	let sferaGeo2 = new THREE.SphereGeometry(vertice2);
     	const material2 = new THREE.MeshStandardMaterial( {
@@ -195,7 +196,7 @@ function onSelectStart( event ) {
 	cube.position.copy(center); // set position of the cube
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
-        
+        }
     
 
 }
