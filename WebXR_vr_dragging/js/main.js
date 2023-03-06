@@ -20,8 +20,8 @@ init();
 animate();
 let vertice1;
 let vertice2;
-const sphere2;
-const sphere;
+let sphere2;
+let sphere;
 
 function init() {
 
