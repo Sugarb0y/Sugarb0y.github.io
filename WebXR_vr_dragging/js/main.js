@@ -193,8 +193,8 @@ function onSelectStart( event ) {
 	scene.add(cube)
         }
     else{
-    	vertice2 == undefined;
-    	vertice1 == undefined;
+    	vertice2 = undefined;
+    	vertice1 = undefined;
     }
 
 }
