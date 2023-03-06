@@ -170,17 +170,31 @@ function onSelectStart( event ) {
             } );
         const sphere = new THREE.Mesh(sferaGeo,material);
         scene.add( sphere );
-     if (vertice2 == undefined)
+     if (vertice2 == undefined &&vertice1 != undefined)
     	vertice2 = controller.position;
-    	let sferaGeo = new THREE.SphereGeometry(veritce1);
-    	const material = new THREE.MeshStandardMaterial( {
+    	let sferaGeo2 = new THREE.SphereGeometry(veritce2);
+    	const material2 = new THREE.MeshStandardMaterial( {
                     color: Math.random() * 0xffffff,
                     roughness: 0.7,
                     metalness: 0.0
             } );
-        const sphere = new THREE.Mesh(sferaGeo,material);
-        scene.add( sphere );
-        
+        const sphere2 = new THREE.Mesh(sferaGeo2,material2);
+        scene.add( sphere2 );
+        var cubeDiagonal = new THREE.Vector3().copy(vertice2).sub(vertice1).length(); // cube's diagonal
+	var center = new THREE.Vector3().copy(vertice1).add(vertice2).multiplyScalar(0.5); // cube's center
+
+	var cubeSide = (cubeDiagonal * Math.sqrt(3)) / 3; // cube's edge's length via cube's diagonal
+
+	var cubeGeom = new THREE.BoxBufferGeometry(cubeSide, cubeSide, cubeSide);
+	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
+	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
+	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial({
+	  color: "aqua",
+	  wireframe: true
+	}));
+	cube.position.copy(center); // set position of the cube
+	cube.lookAt(vertice1); // let Three.js do the job for us
+	scene.add(cube)
         
     
 
