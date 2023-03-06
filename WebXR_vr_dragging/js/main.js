@@ -20,6 +20,8 @@ init();
 animate();
 let vertice1;
 let vertice2;
+const sphere2;
+const sphere;
 
 function init() {
 
@@ -165,7 +167,7 @@ function onSelectStart( event ) {
     	console.log(vertice1);
     	let sferaGeo = new THREE.SphereGeometry(20,32,16);
     	const material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
-        const sphere = new THREE.Mesh(sferaGeo,material);
+        sphere = new THREE.Mesh(sferaGeo,material);
         sphere.position.copy( vertice1);
         scene.add( sphere );
         }
@@ -174,7 +176,7 @@ function onSelectStart( event ) {
     	console.log(vertice2);
     	let sferaGeo2 = new THREE.SphereGeometry(30,32,16);
     	const material2 = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
-        const sphere2 = new THREE.Mesh(sferaGeo2,material2);
+        sphere2 = new THREE.Mesh(sferaGeo2,material2);
         sphere2.position.copy(vertice2);
         scene.add( sphere2 );
         var cubeDiagonal = new THREE.Vector3().copy(vertice2).sub(vertice1).length(); // cube's diagonal
