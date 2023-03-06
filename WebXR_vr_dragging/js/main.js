@@ -171,7 +171,7 @@ function onSelectStart( event ) {
         sphere.position.copy( vertice1);
         scene.add( sphere );
         }
-     if (vertice2 == undefined && vertice1 != undefined){
+     else if (vertice2 == undefined){
     	vertice2 = controller.position;
     	console.log(vertice2);
     	let sferaGeo2 = new THREE.SphereGeometry(30,32,16);
@@ -184,7 +184,7 @@ function onSelectStart( event ) {
 
 	var cubeSide = (cubeDiagonal * Math.sqrt(3)) / 3; // cube's edge's length via cube's diagonal
 
-	var cubeGeom = new THREE.BufferGeometry(cubeSide, cubeSide, cubeSide);
+	var cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
 	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
 	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
 	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial({
