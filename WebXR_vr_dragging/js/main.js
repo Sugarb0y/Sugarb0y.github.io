@@ -18,6 +18,8 @@ let group;
 
 init();
 animate();
+let vertice1;
+let vertice2;
 
 function init() {
 
@@ -142,6 +144,7 @@ function init() {
     //
 
     window.addEventListener( 'resize', onWindowResize );
+    
 
 }
 
@@ -157,20 +160,17 @@ function onWindowResize() {
 function onSelectStart( event ) {
 
     const controller = event.target;
-
-    const intersections = getIntersections( controller );
-
-    if ( intersections.length > 0 ) {
-
-            const intersection = intersections[ 0 ];
-
-            const object = intersection.object;
-            object.material.emissive.b = 1;
-            controller.attach( object );
-
-            controller.userData.selected = object;
-
-    }
+    if (vertice1 == undefined)
+    	vertice1 = controller.position;
+    	let sferaGeo = new THREE.SphereGeometry(veritce1);
+    	const material = new THREE.MeshStandardMaterial( {
+                    color: Math.random() * 0xffffff,
+                    roughness: 0.7,
+                    metalness: 0.0
+            } );
+        const sphere = new THREE.Mesh(sferaGeo,material);
+        scene.add( sphere );
+    
 
 }
 
