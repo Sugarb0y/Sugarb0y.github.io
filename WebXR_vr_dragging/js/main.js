@@ -161,12 +161,12 @@ function onWindowResize() {
 
 function onSelectStart( event ) {
 
-    const controller = event.target;
+    let controller = event.target;
     if (vertice1 == undefined){
     	vertice1 = controller.position;
     	console.log(vertice1);
     	let sferaGeo = new THREE.SphereGeometry(20,32,16);
-    	const material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
+    	let material = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
         sphere = new THREE.Mesh(sferaGeo,material);
         sphere.position.copy( vertice1);
         scene.add( sphere );
@@ -175,7 +175,7 @@ function onSelectStart( event ) {
     	vertice2 = controller.position;
     	console.log(vertice2);
     	let sferaGeo2 = new THREE.SphereGeometry(30,32,16);
-    	const material2 = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
+    	let material2 = new THREE.MeshBasicMaterial( {color: 0x00ffff} );
         sphere2 = new THREE.Mesh(sferaGeo2,material2);
         sphere2.position.copy(vertice2);
         scene.add( sphere2 );
@@ -187,7 +187,7 @@ function onSelectStart( event ) {
 	var cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
 	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
 	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
-	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ););
+	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ));
 	cube.position.copy(center); // set position of the cube
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
