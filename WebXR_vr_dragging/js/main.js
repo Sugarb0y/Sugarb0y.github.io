@@ -187,10 +187,7 @@ function onSelectStart( event ) {
 	var cubeGeom = new THREE.BoxGeometry(cubeSide, cubeSide, cubeSide);
 	cubeGeom.rotateY(Math.PI * 0.25); // rotate around Y
 	cubeGeom.rotateX(Math.atan(Math.sqrt(2) * 0.5)); // rotate around X, using angle between cube's diagonal and its projection on a cube's face
-	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial({
-	  color: "aqua",
-	  wireframe: true
-	}));
+	var cube = new THREE.Mesh(cubeGeom, new THREE.MeshBasicMaterial( {color: 0x00ffff} ););
 	cube.position.copy(center); // set position of the cube
 	cube.lookAt(vertice1); // let Three.js do the job for us
 	scene.add(cube)
