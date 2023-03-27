@@ -1,10 +1,11 @@
 // Code goes here
+import { VRButton } from 'three/addons/webxr/VRButton.js';
+
+import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
 $(document).ready(function(){
   
-  import { VRButton } from 'three/addons/webxr/VRButton.js';
-
-	import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+  
 
 	let container;
 	let camera, scene, renderer;
