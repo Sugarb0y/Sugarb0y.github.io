@@ -136,7 +136,7 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
     
     // set camera and controls
     camera.position.set(0,300,75); //move camera a bit
-    controls = new THREE.OrbitControls( camera, renderer.domElement );
+    //controls = new THREE.OrbitControls( camera, renderer.domElement );
     
     
     // Light
