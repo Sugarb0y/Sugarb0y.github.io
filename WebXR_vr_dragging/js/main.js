@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 
-import { VRButton } from 'three/addons/webxr/VRButton.js';
+import { VRButton } from '/three/addons/webxr/VRButton.js';
 
-import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+import { XRControllerModelFactory } from '/three/addons/webxr/XRControllerModelFactory.js';
 
 let container;
 let camera, scene, renderer;
