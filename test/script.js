@@ -22,7 +22,7 @@ window.ThreeBSP = (function() {
 			polygons = [],
 			tree;
 	
-		if ( geometry.type === "Geometry" ) { //instaceof THREE.Geometry
+		if ( geometry instaceof Geometry ) { //instaceof THREE.Geometry
 			this.matrix = new THREE.Matrix4;
 		} else if ( geometry.type === "Mesh"  ) {//instanceof THREE.Mesh
 			// #todo: add hierarchy support
@@ -560,7 +560,7 @@ window.ThreeBSP = (function() {
 const _m1 = new THREE.Matrix4();
 const _obj = new THREE.Object3D();
 const _offset = new THREE.Vector3();
-/*
+
 class Geometry extends THREE.EventDispatcher {
 
 	constructor() {
@@ -2400,9 +2400,7 @@ class Face3 {
 
 }
 
-THREE.Geometry = Geometry;
-THREE.Face3 = Face3;
-*/
+
 	let container;
 	let camera, scene, renderer;
 	let controller1, controller2;
@@ -2503,27 +2501,27 @@ THREE.Face3 = Face3;
     */
     // Cylinder
     var cylinderGeometry = new Geometry.fromBufferGeometry(new THREE.CylinderGeometry( 50, 50, 25, 32,32,false ));
-    var cylinderMesh = new THREE.Mesh( cylinderGeometry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
+    //var cylinderMesh = new THREE.Mesh( cylinderGeometry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
     //scene.add( cylinder );
     //cylinder.position.set(0,0,100);
-    var cylinder_bsp = new ThreeBSP (cylinderMesh);
+    var cylinder_bsp = new ThreeBSP (cylinderGeometry);//cylinderMesh
     
     cylinderGeometry = new Geometry.fromBufferGeometry(new THREE.CylinderGeometry( 30, 30, 25, 32,1,false ));
-    cylinderMesh = new THREE.Mesh( cylinderGeometry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
-    var cylinder_bsp_sub = new ThreeBSP (cylinderMesh);
+    //cylinderMesh = new THREE.Mesh( cylinderGeometry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
+    var cylinder_bsp_sub = new ThreeBSP (cylinderGeometry);//cylinderMesh
     
 		var subtract_bsp = cylinder_bsp.subtract( cylinder_bsp_sub );
 		
-		var boxGeormetry = new THREE.BoxGeometry(50, 25, 50);
-		var boxMesh = new THREE.Mesh( boxGeormetry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
+		var boxGeormetry = new Geometry.fromBufferGeometry(new THREE.BoxGeometry(50, 25, 50));
+		//var boxMesh = new THREE.Mesh( boxGeormetry, new THREE.MeshLambertMaterial({ color: 0xffffff }) );
 		//scene.add(boxMesh);
 		boxMesh.position.set(25,0,25);
-		var subtract_bsp2 = subtract_bsp.subtract(new ThreeBSP (boxMesh)); //circle with missing 
+		var subtract_bsp2 = subtract_bsp.subtract(new ThreeBSP (boxGeormetry)); //circle with missing 
 		boxMesh.position.set(-25,0,25);
-		subtract_bsp2 = subtract_bsp2.subtract(new ThreeBSP (boxMesh)); //circle with missing 
+		subtract_bsp2 = subtract_bsp2.subtract(new ThreeBSP (boxGeormetry)); //circle with missing 
 		subtract_bsp = subtract_bsp.subtract(subtract_bsp2);
 		boxMesh.position.set(-25,0,-25);
-		subtract_bsp2 = subtract_bsp2.subtract(new ThreeBSP (boxMesh)); //circle with missing 
+		subtract_bsp2 = subtract_bsp2.subtract(new ThreeBSP (boxGeormetry)); //circle with missing 
 		var result = subtract_bsp2.toMesh( material );
 		
 		
