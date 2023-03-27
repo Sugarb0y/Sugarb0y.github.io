@@ -560,7 +560,7 @@ window.ThreeBSP = (function() {
 const _m1 = new THREE.Matrix4();
 const _obj = new THREE.Object3D();
 const _offset = new THREE.Vector3();
-
+/*
 class Geometry extends THREE.EventDispatcher {
 
 	constructor() {
@@ -2402,7 +2402,7 @@ class Face3 {
 
 THREE.Geometry = Geometry;
 THREE.Face3 = Face3;
-
+*/
 	let container;
 	let camera, scene, renderer;
 	let controller1, controller2;
