@@ -3,8 +3,6 @@ import { VRButton } from 'three/addons/webxr/VRButton.js';
 
 import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
 
-$(document).ready(function(){
-  
   
 
 	let container;
@@ -185,4 +183,3 @@ function render()
     //cube.position.z += 0.001;
   }
   render();*/
-})
