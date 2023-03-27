@@ -22,9 +22,9 @@ window.ThreeBSP = (function() {
 			polygons = [],
 			tree;
 	
-		if ( geometry instanceof THREE.Geometry ) {
+		if ( geometry.type === "Geometry" ) { //instaceof THREE.Geometry
 			this.matrix = new THREE.Matrix4;
-		} else if ( geometry instanceof THREE.Mesh ) {
+		} else if ( geometry.type === "Mesh"  ) {//instanceof THREE.Mesh
 			// #todo: add hierarchy support
 			geometry.updateMatrix();
 			this.matrix = geometry.matrix.clone();
