@@ -150,7 +150,12 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
     // add light to the scene
     scene.add(pointLight);
   }
-  
+  function onSelectStart( event ) {}
+function onSelectEnd( event ) {}
+function getIntersections( controller ) {}
+function intersectObjects( controller ) {}
+function cleanIntersected() {}
+
   init();
   animate();
   
