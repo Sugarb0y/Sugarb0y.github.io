@@ -65,7 +65,7 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
 
     document.body.appendChild( VRButton.createButton( renderer ) );
 	
-	ontroller1 = renderer.xr.getController( 0 );
+	controller1 = renderer.xr.getController( 0 );
     controller1.addEventListener( 'selectstart', onSelectStart );
     controller1.addEventListener( 'selectend', onSelectEnd );
     scene.add( controller1 );
