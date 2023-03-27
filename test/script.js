@@ -12,7 +12,7 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
 	
 	let raycaster;
 	
-  var scene, camera, renderer;
+  //var scene, camera, renderer;
   var width = 500;
   var height = 500;
   var material = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
