@@ -4,7 +4,7 @@
  * @author alteredq / http://alteredqualia.com/
  * @author WestLangley / http://github.com/WestLangley
  */
-
+import * as THREE from 'three';
 THREE.OrbitControls = function ( object, domElement ) {
 
 	this.object = object;
