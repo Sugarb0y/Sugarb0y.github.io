@@ -19,6 +19,8 @@ import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFa
   var material = new THREE.MeshBasicMaterial( { color: 0xffffff, side: THREE.DoubleSide } );
   
   function init(){
+	  container = document.createElement( 'div' );
+    document.body.appendChild( container );
     scene = new THREE.Scene();
     // set:
     // Field of view
