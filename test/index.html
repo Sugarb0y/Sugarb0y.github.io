@@ -4,7 +4,14 @@
   <head>
     <link rel="stylesheet" href="style.css" />
     <script data-require="jquery@2.0.3" data-semver="2.0.3" src="jquery-2.0.3.min.js"></script>
-    <script src="Three.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.148/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.148/examples/jsm/"
+        }
+      }
+    </script>
     <script src="OrbitControls.js"></script>
     <script src="ThreeCSG.js"></script>
     
